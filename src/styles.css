@@ -160,14 +160,6 @@ app-top-bar h1 {
   width: 200px;
 }
 
-/*.product-list-item img {*/
-/*  !*width: auto;*!*/
-/*  !*padding: 0 20px 0 20px;*!*/
-/*}*/
-
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
-*/
+.product-list-item[id="1"] {
+  background-color: #1976d2;
+}

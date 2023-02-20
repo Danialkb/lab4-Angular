@@ -10,7 +10,6 @@ import {Product, productsList} from "../products";
 })
 export class ProductListComponent {
   products = productsList;
-  slideIndex = 1;
 
   share(p: Product) {
     const url = encodeURI(p.prodLink);
@@ -23,32 +22,40 @@ export class ProductListComponent {
   }
   // showSlides(slideIndex);
 
-  plusSlide(i: number) {
-    this.showSlides(this.slideIndex += i);
-  }
+  // plusSlide(i: number, p: Product) {
+  //   this.showSlides(p.slideNumber += i, p);
+  // }
+  //
+  // curSlide(i: number, p: Product) {
+  //   this.showSlides(p.slideNumber = i, p);
+  // }
 
-  curSlide(i: number) {
-    this.showSlides(this.slideIndex = i);
-  }
-
-  showSlides(slideNumber: number) {
-    let slides = [...document.getElementsByClassName("slides")];
-    let dots = [...document.getElementsByClassName("dot")];
-    if(slideNumber > slides.length) {
-      this.slideIndex = 1;
-    }
-    else if (slideNumber < 1) {
-      this.slideIndex = slides.length;
-    }
-    for(let i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-    }
-    for(let j = 0; j < dots.length; j++) {
-      dots[j].className = dots[j].className.replace("active", "");
-    }
-    slides[this.slideIndex - 1].style.display = "block";
-    dots[this.slideIndex - 1].className += " active";
-  }
+  // showSlides(slideNumber: number, p: Product) {
+  //   const productContainer = document.querySelector(`.product-list-item[data-product-id="${p.id}"]`);
+  //   // @ts-ignore
+  //   const slides = productContainer.querySelectorAll(".slides");
+  //   // @ts-ignore
+  //   const dots = productContainer.querySelectorAll(".dot");
+  //
+  //   // // @ts-ignore
+  //   // let slides = [...document.getElementsByClassName("slides")];
+  //   // // @ts-ignore
+  //   // let dots = [...document.getElementsByClassName("dot")];
+  //   if(slideNumber > slides.length) {
+  //     p.slideNumber = 1;
+  //   }
+  //   else if (slideNumber < 1) {
+  //     p.slideNumber = slides.length;
+  //   }
+  //   for(let i = 0; i < slides.length; i++) {
+  //     slides[i].style.display = "none";
+  //   }
+  //   for(let j = 0; j < dots.length; j++) {
+  //     dots[j].className = dots[j].className.replace("active", "");
+  //   }
+  //   slides[p.slideNumber - 1].style.display = "block";
+  //   dots[p.slideNumber - 1].className += " active";
+  // }
 }
 
 
