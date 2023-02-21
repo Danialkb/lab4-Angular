@@ -160,6 +160,6 @@ app-top-bar h1 {
   width: 200px;
 }
 
-.product-list-item[id="1"] {
-  background-color: #1976d2;
+.slides a:hover {
+  opacity: 1;
 }
