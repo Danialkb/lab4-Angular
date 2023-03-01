@@ -2,38 +2,39 @@
 <div class="product-list">
   <div *ngFor="let product of products" class="product-list-item">
     <h3>
-      <a [title]="product.name + ' details'" [routerLink]="['products/', product.id]">
+      <a [routerLink]="['/products', product.id]">
         {{ product.name }}
       </a>
     </h3>
     <div class="slide-container">
-      <div class="slides fade" *ngFor="let image of product.images">
-        <a href="{{product.prodLink}}"><img src="{{image}}" width="200px"></a>
+      <div class="slides fade">
+        <a href="{{product.prodLink}}"><img src="{{product.images[0]}}" width="200px"></a>
       </div>
-      <a class="prev">&#10094;</a>
-      <a class="next">&#10095;</a>
     </div>
-    <div style="text-align: center">
-      <span *ngFor="let image of product.images; let i = index;" class="dot"></span>
-    </div>
-    <p *ngIf="product.description">
-      Description: {{ product.description }}
-    </p>
-    <p *ngIf="product.price">
-      Price: ${{product.price}}
-    </p>
-    <p *ngIf="product.rating">
-      Rating: {{product.rating}}
-    </p>
-    <p>
+    <div class="item-description">
 
-    </p>
-    <button type="button" (click)="share(product)">
-      Share
-    </button>
-    <app-product-alerts
-      [product]="product"
-      (notify)="onNotify()">
-    </app-product-alerts>
+      <p *ngIf="product.description">
+        Description: {{ product.description }}
+      </p>
+      <p *ngIf="product.price">
+        Price: ${{product.price}}
+      </p>
+      <p *ngIf="product.rating">
+        Rating: {{product.rating}}
+      </p>
+      <p>
+        Likes: {{ product.likes }}
+      </p>
+      <p>
+
+      </p>
+      <button type="button" (click)="share(product)">
+        Share
+      </button>
+<!--      <app-product-alerts-->
+<!--        [product]="product"-->
+<!--        (notify)="onNotify()">-->
+<!--      </app-product-alerts>-->
+    </div>
   </div>
 </div>

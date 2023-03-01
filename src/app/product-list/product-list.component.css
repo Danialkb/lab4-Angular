@@ -1,4 +1,5 @@
 .slide-container {
+  justify-content: center;
   padding: 20px;
   max-width: 370px;
   position: relative;
@@ -52,4 +53,12 @@
   from{opacity: .4}
   to{opacity: 1}
 
+}
+
+.item-description {
+  padding: 10px;
+}
+
+.item-description button {
+  margin: 0;
 }

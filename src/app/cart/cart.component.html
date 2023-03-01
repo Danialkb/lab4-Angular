@@ -3,8 +3,9 @@
   <a routerLink="/shipping">Shipping Prices</a>
 </p>
 <div class="cart-item" *ngFor="let item of items">
-  <span>{{ item.name }}</span>
+  <a [routerLink]="['/products', item.id]"><span style="color: #1976d2">{{ item.name }}</span></a>
   <span>{{ item.price | currency }}</span>
+  <button type="button" style="margin: 0; background-color: #e40616" (click)="deleteItem(item)">Delete</button>
 </div>
 
 <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">

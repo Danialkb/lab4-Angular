@@ -1,9 +1,28 @@
-<h1>Product Details</h1>
-
+<div class="product-list-item" style="border: none" [attr.product-id]="product?.id">
 <div *ngIf="product">
+  <h1>Product Details</h1>
   <h3>{{ product.name }}</h3>
-  <img src="{{product.images}}" style="width: 200px">
-  <h4>{{ product.price | currency }}</h4>
-  <p>{{ product.description }}</p>
+  <div class="slide-container">
+    <div class="slides fade" *ngFor="let image of product.images">
+      <a href="{{product.prodLink}}">
+        <img src="{{image}}" style="width: 200px">
+      </a>
+    </div>
+    <a class="prev" (click)="plusSlide(-1, product)">&#10094;</a>
+    <a class="next" (click)="plusSlide(1, product)">&#10095;</a>
+  </div>
+  <div style="text-align: center">
+    <span *ngFor="let image of product.images; let i = index;" class="dot" (click)="curSlide(i + 1, product)"></span>
+  </div>
+  <h4>Price: {{ product.price | currency }}</h4>
+  <p>Description: {{ product.description }}</p>
   <button type="button" (click)="addToCart(product)">Buy</button>
+  <br>
+  <button type="button" class="like-btn" (click)="like(product)">
+<!--    <img src="images/Icon-like-button-transparent-PNG.png">-->
+    <span>{{product.likes}}</span> Like
+  </button>
+  <br>
+  <button type="button" style="background-color: #e40616; margin-top: 10px" (click)="deleteItem(product)">Delete</button>
+</div>
 </div>

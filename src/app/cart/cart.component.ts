@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {CartService} from "../cart.service";
 import {HttpClient} from "@angular/common/http";
 import {FormBuilder} from "@angular/forms";
+import {Product} from "../products";
 
 @Component({
   selector: 'app-cart',
@@ -21,10 +22,14 @@ export class CartComponent {
   ) { }
 
   onSubmit(): void {
-    // Process checkout data here
     this.items = this.cartService.clearCart();
     window.alert('Your order has been submitted ' + this.checkoutForm.value.name);
     this.checkoutForm.reset();
+  }
+
+  deleteItem(p: Product) {
+    this.items = this.items.filter(prod => prod.id != p.id);
+    this.cartService.deleteItem(p);
   }
 
 }

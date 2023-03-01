@@ -1,0 +1,38 @@
+.categories-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.all-categories {
+  margin-left: 400px;
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  width: 100%;
+  justify-content: center;
+}
+
+.category {
+  padding: 20px;
+  text-align: center;
+  /*margin-right: 120px;*/
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  width: 400px;
+  height: auto;
+  margin: 10px;
+}
+
+.category h3 {
+  color: dodgerblue;
+}
+
+.category h3:hover {
+  opacity: 0.8;
+}
+
+.category img {
+  width: 300px;
+}

@@ -20,6 +20,10 @@ export class CartService {
   getShippingPrices() {
     return this.http.get<{type: string, price: number}[]>('/assets/shipping.json');
   }
+
+  deleteItem(p: Product) {
+    this.items = this.items.filter(product => product.id != p.id);
+  }
   clearCart() {
     this.items = [];
     return this.items;
